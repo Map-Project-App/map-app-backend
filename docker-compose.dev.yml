@@ -6,12 +6,12 @@ services:
     container_name: mongo-dev
     restart: always
     networks:
-      - dev-network
+      - map-backend-dev-network
     volumes:
       - ./data/dev/mongo:/data/db
     ports:
       - "27017:27017"
 
 networks:
-  dev-network:
+  map-backend-dev-network:
     driver: bridge
