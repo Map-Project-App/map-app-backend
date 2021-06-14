@@ -1,9 +1,5 @@
-import {
-  Model, Schema, model
-} from 'mongoose';
-import TimeStampPlugin, {
-  ITimeStampedDocument
-} from './plugins/timestamp-plugin';
+import { Model, Schema, model } from 'mongoose';
+import TimeStampPlugin, { ITimeStampedDocument } from './plugins/timestamp-plugin';
 
 export interface IBook extends ITimeStampedDocument {
   /** Name of the book */
