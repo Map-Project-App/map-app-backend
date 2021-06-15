@@ -3,6 +3,7 @@ import swaggerUi from 'swagger-ui-express';
 import apiSpec from '../openapi.json';
 
 import * as BookController from './controllers/book';
+import * as ImageController from './controllers/image';
 
 const swaggerUiOptions = {
   customCss: '.swagger-ui .topbar { display: none }'
@@ -14,6 +15,10 @@ const router = Router();
 router.post('/book/add', BookController.add);
 router.get('/book/all', BookController.all);
 router.get('/book/search', BookController.search);
+
+// Image routes
+router.post('/image/add', ImageController.add);
+router.get('/image/all', ImageController.all);
 
 // Dev routes
 if (process.env.NODE_ENV === 'development') {

@@ -1,5 +1,5 @@
-import { Model, Schema, model } from "mongoose";
-import TimeStampPlugin, { ITimeStampedDocument } from "./plugins/timestamp-plugin";
+import { Model, Schema, model } from 'mongoose';
+import TimeStampPlugin, { ITimeStampedDocument } from './plugins/timestamp-plugin';
 
 export interface IImage extends ITimeStampedDocument {
     /** Imgur link to image */
@@ -13,9 +13,9 @@ export interface IImage extends ITimeStampedDocument {
 interface IImageModel extends Model<IImage> { }
 
 const schema = new Schema<IImage>({
-    link: { type: String, index: true, required: true },
-    latitude: { type: String, index: true, required: true },
-    longitude: { type: String, index: true, required: true }
+  link: { type: String, index: true, required: true },
+  latitude: { type: String, index: true, required: true },
+  longitude: { type: String, index: true, required: true }
 });
 
 schema.plugin(TimeStampPlugin);
