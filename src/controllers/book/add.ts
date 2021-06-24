@@ -21,7 +21,7 @@ const add: RequestHandler = async (req: Request<{}, {}, AddReqBody>, res) => {
 
   res.send({
     message: 'Saved',
-    book: book.toJSON()
+    user: book.toJSON()
   });
 };
 

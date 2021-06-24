@@ -19,6 +19,7 @@ router.get('/book/search', BookController.search);
 // Image routes
 router.post('/image/add', ImageController.add);
 router.get('/image/all', ImageController.all);
+router.delete('/image/remove', ImageController.remove);
 
 // Dev routes
 if (process.env.NODE_ENV === 'development') {

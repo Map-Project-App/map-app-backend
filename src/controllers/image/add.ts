@@ -28,3 +28,6 @@ const add: RequestHandler = async (req: Request<{}, {}, AddReqBody>, res) => {
 };
 
 export default requestMiddleware(add, { validation: { body: addImageSchema } });
+
+
+
