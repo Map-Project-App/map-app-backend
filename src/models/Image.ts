@@ -14,8 +14,8 @@ interface IImageModel extends Model<IImage> { }
 
 const schema = new Schema<IImage>({
   link: { type: String, index: true, required: true },
-  latitude: { type: String, index: true, required: true },
-  longitude: { type: String, index: true, required: true }
+  latitude: { type: Number, index: true, required: true },
+  longitude: { type: Number, index: true, required: true }
 });
 
 schema.plugin(TimeStampPlugin);

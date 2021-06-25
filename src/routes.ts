@@ -25,6 +25,9 @@ router.delete('/image/remove', ImageController.remove);
 if (process.env.NODE_ENV === 'development') {
   router.use('/dev/api-docs', swaggerUi.serve);
   router.get('/dev/api-docs', swaggerUi.setup(apiSpec, swaggerUiOptions));
+
+  // Image dev
+  router.delete('/dev/image/remove/all', ImageController.removeAll);
 }
 
 export default router;

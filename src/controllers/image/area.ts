@@ -7,9 +7,4 @@ import Image from '../../models/Image';
  * function is exactly the same as all.ts.
  */
 
-const area: RequestHandler = async (req, res) => {
-    const images = await Image.find();
-    res.send({ images });
-};
-
-export default requestMiddleware(area);
+/* TBF */

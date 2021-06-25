@@ -9,22 +9,28 @@ export const removeImageSchema = Joi.object().keys({
   longitude: Joi.number().required()
 });
 
-interface RemoveReqBody {
+interface DeleteReqBody {
   link: string;
   latitude: number;
   longitude: number;
 }
 
-const remove: RequestHandler = async (req: Request<{}, {}, RemoveReqBody>, res) => {
+const remove: RequestHandler = async (req: Request<{}, {}, DeleteReqBody>, res) => {
   const { link, latitude, longitude } = req.body;
 
-  const image = new Image({ link, latitude, longitude }); // ?
-  await image.deleteOne();
-
-  res.send({
-    message: 'Removed',
-    image: image.toJSON() // ?
-  });
+  const image = new Image();
+  const { deletedCount } = await image.model('Image').deleteOne({ link, latitude, longitude });
+  if (deletedCount !== 0) {
+    res.send({
+      success: true,
+      message: 'Removed image'
+    });
+  } else {
+    res.send({
+      success: false,
+      message: 'Failed to find image to remove'
+    });
+  }
 };
 
 export default requestMiddleware(remove, { validation: { body: removeImageSchema } });
