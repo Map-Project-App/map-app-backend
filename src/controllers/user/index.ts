@@ -1,13 +1,13 @@
 import add from './add';
 import all from './all';
-import area from './area';
+import search from './search';
 import remove from './remove';
 import removeAll from './removeAll';
 
 export {
-  add,
-  all,
-  area,
-  remove,
-  removeAll
-};
+    add,
+    all,
+    search,
+    remove,
+    removeAll
+}

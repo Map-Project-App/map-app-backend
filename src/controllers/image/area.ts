@@ -8,3 +8,6 @@ import Image from '../../models/Image';
  */
 
 /* TBF */
+
+/* Temporary export */
+export default null;
