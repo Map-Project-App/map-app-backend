@@ -19,13 +19,12 @@ interface SearchReqBody {
     email?: string;
 }
 
-// Some errors here
 const search: RequestHandler = async (req: Request<{}, {}, {}, SearchReqBody>, res) => {
-    const { username, email }, req.query;
+    const { username, email } = req.query;
 
     const query = buildUserSearchQuery(username, email);
     const users = await User.find(query);
     res.send({ users });
-});
+};
 
 export default requestMiddleware(search);
