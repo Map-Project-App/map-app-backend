@@ -5,8 +5,10 @@ import express, { Request, Response, NextFunction } from 'express';
 import ApplicationError from './errors/application-error';
 import routes from './routes';
 import logger from './logger';
+import { awsInitialize } from './repositories/image';
 
 const app = express();
+awsInitialize();
 
 function logResponseTime(req: Request, res: Response, next: NextFunction) {
   const startHrTime = process.hrtime();
@@ -41,7 +43,8 @@ app.use((err: ApplicationError, req: Request, res: Response, next: NextFunction)
   }
 
   return res.status(err.status || 500).json({
-    error: err.message
+    error: err.message,
+    success: false
   });
 });
 

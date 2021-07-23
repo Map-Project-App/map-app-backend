@@ -45,7 +45,8 @@ export const requestMiddleware = (
       logger.log({
         level: 'error',
         message: 'Error in request handler',
-        error: err
+        error: err,
+        success: false
       });
     }
     next(err);
